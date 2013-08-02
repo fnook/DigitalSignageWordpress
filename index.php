@@ -1,14 +1,26 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Index
+ *
+ * Standard loop for the front-page
+ *
+ * @package WordPress
+ * @subpackage Foundation, for WordPress
+ * @since Foundation, for WordPress 1.0
+ */
 
+get_header(); ?>
 
-		<!-- Row for main content area -->
-		<div id="content" class="twelve columns" role="main">
-	
-			<div class="post-box twelve columns">
-				<?php get_template_part('loop', 'index'); ?>
+<div class="row">
+    <!-- Main Content -->
+    <div class="large-12 columns" role="content">
+	    <div class="row">
+			<div class="post-box large-12 columns" id="headline">
+    			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			</div>
+	    </div>
+		<?php foundation_pagination(); ?>
+    </div>
+    <!-- End Main Content -->
 
-		</div><!-- End Content row -->
-		
-		
 <?php get_footer(); ?>
